@@ -1,0 +1,88 @@
+.wrapper {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    .left {
+        width: 200%;
+        display: inline-block;
+        height: 200%;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        position: absolute;
+        left: -150%;
+        top: -50%;
+        background-color: #0070ba;
+        .textwrapper {
+            position: absolute;
+            width: 20%;
+            right: 0%;
+            top: 40%;
+            color: #fff;
+            h2 {
+                font-size: 22px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+    .right {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        .inputwrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 80%;
+            height: 200px;
+            text-align: center;
+            h2 {
+                font-size: 18px;
+                color: #0070ba;
+                text-align: center;
+                margin-bottom: 30px
+            }
+            p {
+                font-size: 14px;
+                color: red;
+                text-align: center;
+                margin-bottom: 30px
+            }
+            input[type=email],
+            input[type=password],
+            button {
+                width: 90%;
+                max-width: 250px;
+                padding: 11px 10px;
+                background: #f3f6fb;
+                border-radius: 14px;
+                margin: 0 auto;
+                margin-bottom: 20px;
+                display: block;
+                border: none;
+                font-size: 15px;
+                outline: none;
+            }
+            button {
+                cursor: pointer;
+                text-align: center;
+                background-color: #0070ba;
+                color: #fff;
+            }
+            button:disabled,
+            button[disabled] {
+                cursor: default;
+                opacity: .4;
+            }
+        }
+    }
+}

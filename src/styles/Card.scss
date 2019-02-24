@@ -1,0 +1,70 @@
+.card {
+    /* Add shadows to create the "card" effect */
+    width: 80%; // height: 200px;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    .title {
+        margin: 0;
+        padding: 0 0 10px;
+        color: #0070ba;
+        font-size: 26px;
+        font-weight: 700;
+        text-align: left;
+    }
+    .sub_title {
+        margin: 0;
+        padding: 0 0 20px;
+        color: #0c3e5f;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .description {
+        color: #7d7d7d;
+        font-size: 18px;
+    }
+    .card-meta {
+        margin: 30px 0 0;
+        color: #b1b1b1;
+        .timestamp {
+            margin: 0 16px 0 0;
+            float: right;
+            font-style: italic;
+        }
+        a {
+            cursor: pointer;
+            color: #0070ba;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 5px 10px;
+        }
+    }
+    input[type=text],
+    textarea {
+        width: 100%;
+        padding: 11px 10px;
+        background: #f3f6fb;
+        border-radius: 14px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: block;
+        border: none;
+        font-size: 20px;
+        outline: none;
+        box-sizing: border-box;
+    }
+    textarea {
+        resize: none;
+        font-size: 15px;
+        color: #696e71;
+        line-height: 25px;
+    }
+}
+
+/* On mouse-over, add a deeper shadow */
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
