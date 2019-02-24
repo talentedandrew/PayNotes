@@ -26,13 +26,23 @@ export default class extends Document {
   }
 
   get helmetJsx () {
-    let title = 'Hello next.js Real World!'
     return (
       <Helmet>
-        <title>{title}</title>
+        <meta charSet='UTF-8' />
+        <meta
+          name='description'
+          content='A perfect place to store your notes'
+        />
+        <title>{'PayNotes'}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta property='og:title' content={title} />
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' />
+        <meta name='theme-color' content='#0070ba' />
+        <meta property='og:title' content={'PayNotes'} />
+        <link rel='manifest' href='/_next/static/manifest.json' />
+        <link rel='icon' href='/static/favicon.ico' />
+        <link
+          href='https://fonts.googleapis.com/css?family=Open+Sans'
+          rel='stylesheet'
+        />
         <style>{`
             body,html,#__next,.layout {
               width: 100%;

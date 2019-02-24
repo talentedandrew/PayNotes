@@ -12,8 +12,8 @@ export function login ({ email, password }) {
     })
     const res = await service.authenticate({ email, password })
     if (res.status) {
-      res.user.authdata = window.btoa(email + ':' + password)
-      window.localStorage.setItem('user', JSON.stringify(res.user))
+      res.user.authdata = typeof window !== 'undefined' && window.btoa(email + ':' + password) || ''
+      typeof window !== 'undefined' && window.localStorage.setItem('user', JSON.stringify(res.user))
       res.user && (await dispatch(onLoginSuccess({ ...res.user })))
       Router.push('/notes')
     } else {
@@ -24,19 +24,19 @@ export function login ({ email, password }) {
 
 export function logout () {
   return async dispatch => {
-    window.localStorage.removeItem('user')
+    typeof window !== 'undefined' && window.localStorage.removeItem('user')
     await dispatch(onLoginFail(''))
     Router.push('/')
   }
 }
 
-function onLoginSuccess (user) {
+export function onLoginSuccess (user) {
   return {
     type: USER_LOGIN_SUCCESS,
     user
   }
 }
-function onLoginFail (message = '') {
+export function onLoginFail (message = '') {
   return {
     type: USER_LOGIN_FAILED,
     message

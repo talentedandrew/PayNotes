@@ -9,7 +9,6 @@ router.post('/createnote', createNote)
 
 function saveEditedNote (req, res, next) {
   const note = userService.saveEditedNote(req.body)
-  console.log('note', note)
   if (note) {
     res.json({ status: true, note: note })
   } else {

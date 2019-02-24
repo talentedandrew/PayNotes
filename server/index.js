@@ -43,7 +43,14 @@ app.prepare().then(() => {
   server.use('/paynotes', basicAuth, notesController)
 
   server.get('*', (req, res) => {
-    return handler(req, res)
+    if (req.url.includes('/sw')) {
+      const filePath = path.join(__dirname, '../static', 'workbox', 'sw.js')
+      app.serveStatic(req, res, filePath)
+    } else if (req.url.startsWith('static/workbox/')) {
+      app.serveStatic(req, res, path.join(__dirname, req.url))
+    } else {
+      return handler(req, res)
+    }
   })
 
   // global error handler

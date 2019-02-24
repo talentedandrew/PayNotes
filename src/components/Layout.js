@@ -6,7 +6,6 @@ import { logout } from 'actions/user'
 class Layout extends Component {
   render () {
     const { user, children, logout } = this.props
-    console.log('user', user.get('islogin'))
     return (
       <Fragment>
         <div className='layout'>

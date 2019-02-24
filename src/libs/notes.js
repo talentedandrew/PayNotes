@@ -5,7 +5,7 @@ import config from 'config'
 function authHeader () {
   let user
   try {
-    user = JSON.parse(window.localStorage.getItem('user'))
+    user = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('user')) || {}
   } catch (e) {
     user = {}
   }
@@ -17,9 +17,8 @@ function authHeader () {
   }
 }
 const service = {
-  getallnotes () {
-    const auth = authHeader()
-    console.log('auth', auth)
+  getallnotes (dummyAuth) {
+    const auth = dummyAuth || authHeader()
     return axios
       .get(`${config.baseUrl}/paynotes/getallnotes`, {
         headers: {
@@ -28,10 +27,10 @@ const service = {
         }
       })
       .then(res => {
-        return res.data
+        return res
       })
       .catch(error => {
-        return error.response.data
+        return error.response
       })
   },
   createNewNote ({ subject, note }) {

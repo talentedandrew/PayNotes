@@ -1,3 +1,4 @@
+@import './_mixins.scss';
 .wrapper {
     background-color: #fff;
     width: 100%;
@@ -27,6 +28,17 @@
             p {
                 font-size: 18px;
             }
+            @include sm {
+                width: 50%;
+                right: 25%;
+                top: 75%;
+                text-align: center;
+            }
+        }
+        @include sm {
+            height: 100%;
+            left: -50%;
+            top: -70%;
         }
     }
     .right {
@@ -83,6 +95,11 @@
                 cursor: default;
                 opacity: .4;
             }
+        }
+        @include sm {
+            right: 0;
+            top: 0;
+            width: 100%;
         }
     }
 }

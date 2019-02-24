@@ -6,10 +6,31 @@ import styles from 'styles/notes.scss'
 import Card from 'components/Card'
 import CardEdit from 'components/CardEdit'
 import { getAllNotes, addNewNote, editNote } from 'actions/notes'
+import { onLoginSuccess } from 'actions/user'
 
 class NotesContainer extends Component {
-  static async getInitialProps ({ store, query }) {
-    await store.dispatch(getAllNotes())
+  static async getInitialProps ({ store, query, isServer }) {
+    if (isServer) {
+      // Validating the user using dummy validation
+      await store.dispatch(
+        onLoginSuccess({
+          id: 1,
+          email: 'user@example.com',
+          firstName: 'Dummy',
+          lastName: 'User'
+        })
+      )
+
+      // creating a dummy authorization token
+      const auth = {
+        Authorization: `Basic ${Buffer.from(
+          'user@example.com:test'
+        ).toString('base64')}`
+      }
+      await store.dispatch(getAllNotes(auth))
+    } else {
+      await store.dispatch(getAllNotes())
+    }
   }
 
   state = {
@@ -17,17 +38,19 @@ class NotesContainer extends Component {
     note: '',
     openEditor: false,
     id: '',
-    toAddNew: false
+    toAddNew: false,
+    readMode: false
   };
 
   render () {
     const { notes, addNewNote, editNote } = this.props
-    const { subject, note, id, openEditor, toAddNew } = this.state
+    const { subject, note, id, openEditor, toAddNew, readMode } = this.state
     return (
       <Fragment>
         <div className='wrapper'>
           {openEditor && (
             <CardEdit
+              readMode={readMode}
               subject={subject}
               note={note}
               onNoteEdit={v => this.setState({ note: v })}
@@ -43,7 +66,8 @@ class NotesContainer extends Component {
                   subject: '',
                   id: '',
                   openEditor: false,
-                  toAddNew: false
+                  toAddNew: false,
+                  readMode: false
                 })
               }}
               onCancel={() =>
@@ -52,7 +76,8 @@ class NotesContainer extends Component {
                   subject: '',
                   id: '',
                   openEditor: false,
-                  toAddNew: false
+                  toAddNew: false,
+                  readMode: false
                 })
               }
             />
@@ -68,7 +93,18 @@ class NotesContainer extends Component {
                     subject: note.get('subject'),
                     id: note.get('id'),
                     openEditor: true,
-                    toAddNew: false
+                    toAddNew: false,
+                    readMode: false
+                  })
+                }
+                onReadMore={note =>
+                  this.setState({
+                    note: note.get('note'),
+                    subject: note.get('subject'),
+                    id: note.get('id'),
+                    openEditor: true,
+                    toAddNew: false,
+                    readMode: true
                   })
                 }
               />
@@ -82,7 +118,8 @@ class NotesContainer extends Component {
                 subject: '',
                 id: '',
                 openEditor: true,
-                toAddNew: true
+                toAddNew: true,
+                readMode: false
               })
             }
             className='float'
@@ -110,5 +147,5 @@ NotesContainer.propTypes = {
 export { NotesContainer }
 export default connect(
   mapStateToProps,
-  { getAllNotes, addNewNote, editNote }
+  { onLoginSuccess, getAllNotes, addNewNote, editNote }
 )(NotesContainer)

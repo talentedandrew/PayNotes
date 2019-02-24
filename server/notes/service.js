@@ -1,8 +1,8 @@
 let notes = [
   {
     id: 1,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '2 minute ago',
     note:
@@ -10,8 +10,8 @@ let notes = [
   },
   {
     id: 2,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '3 minute ago',
     note:
@@ -19,8 +19,8 @@ let notes = [
   },
   {
     id: 3,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '4 minute ago',
     note:
@@ -28,8 +28,8 @@ let notes = [
   },
   {
     id: 4,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '5 minute ago',
     note:
@@ -37,8 +37,8 @@ let notes = [
   },
   {
     id: 5,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '6 minute ago',
     note:
@@ -46,8 +46,8 @@ let notes = [
   },
   {
     id: 6,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '7 minute ago',
     note:
@@ -55,8 +55,8 @@ let notes = [
   },
   {
     id: 7,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '8 minute ago',
     note:
@@ -64,8 +64,8 @@ let notes = [
   },
   {
     id: 8,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '9 minute ago',
     note:
@@ -73,8 +73,8 @@ let notes = [
   },
   {
     id: 9,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '10 minute ago',
     note:
@@ -82,8 +82,8 @@ let notes = [
   },
   {
     id: 10,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V',
+    email: 'user@example.com',
+    author: 'Dummy User',
     subject: 'Lorem ipsum dolor sit amet',
     time: '11 minute ago',
     note:
@@ -92,9 +92,7 @@ let notes = [
 ]
 
 function saveEditedNote ({ id, newNote, subject }) {
-  console.log('asdsadsad', id, newNote, subject)
   let note = notes.find(n => n.id === id)
-  console.log('note', note)
   if (note && note.id) {
     note.note = newNote
     note.subject = subject
@@ -108,8 +106,8 @@ function createNote ({ subject, note }) {
     note,
     subject: subject,
     time: `${notes.length + 2} minute ago`,
-    email: 'officialtoanurag@gmail.com',
-    author: 'Anurag V'
+    email: 'user@example.com',
+    author: 'Dummy User'
   }
   notes.push(newNote)
   return newNote

@@ -37,6 +37,7 @@
     "enzyme-adapter-react-16": "^1.8.0",
     "jest": "^24.0.0",
     "lint-staged": "^8.1.0",
+    "next-workbox-webpack-plugin": "^1.1.0",
     "nodemon": "^1.12.1",
     "pre-commit": "^1.2.2",
     "raf": "^3.4.0",
@@ -44,7 +45,8 @@
     "rimraf": "^2.6.2",
     "snazzy": "^8.0.0",
     "standard": "^12.0.1",
-    "webpack-bundle-analyzer": "^3.0.2"
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-pwa-manifest": "^4.0.0"
   },
   "scripts": {
     "lint-staged": "lint-staged",
@@ -85,9 +87,9 @@
       "<rootDir>/src/test/jest.setup.js"
     ]
   },
-  "repository": "CodementorIO/nextjs-redux-starter",
-  "bugs": "https://github.com/CodementorIO/nextjs-redux-starter/issues",
-  "author": "Ian Wang <gogoenwon@gmail.com> (https://github.com/IanWang)",
+  "repository": "talentedandrew/PayNotes",
+  "bugs": "https://github.com/talentedandrew/PayNotes/issues",
+  "author": "Anurag V(https://github.com/talentedandrew)",
   "license": "ISC",
-  "description": "Opinionated Next.js starter with Express, Redux, SASS, and Jest."
+  "description": "A react, redux web application"
 }
