@@ -5,7 +5,7 @@ A dummy app showcasing how using react, redux along with service worker (workbox
 PayNotes is an application, where a user can view, edit and create notes.
 
 ## Features
-- Dynamic routing with.
+- Dynamic routing with next-router.
 - State management with redux
 - Styling with SASS and render using styled-jsx
 - Unit testing with jest
