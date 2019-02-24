@@ -14,6 +14,7 @@ PayNotes is an application, where a user can view, edit and create notes.
 
 ## Getting started
 ```
+use node 10.13.0 or greater
 git clone https://github.com/talentedandrew/PayNotes my-project
 cd my-project
 yarn install
