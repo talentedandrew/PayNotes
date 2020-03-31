@@ -8,7 +8,7 @@
     "helmet": "^3.12.1",
     "humps": "^2.0.1",
     "immutable": "^3.8.2",
-    "next": "^8.0.1",
+    "next": "^9.3.2",
     "next-redux-wrapper": "^2.1.0",
     "next-routes": "^1.4.2",
     "node-sass": "^4.9.3",
