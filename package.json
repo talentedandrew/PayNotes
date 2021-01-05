@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-module-resolver": "^3.0.0",
     "compression": "^1.7.1",
     "cors": "^2.8.5",
